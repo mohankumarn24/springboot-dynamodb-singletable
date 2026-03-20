@@ -1,0 +1,398 @@
+{
+  "info": {
+    "_postman_id": "421decf6-b3eb-4e1e-a586-51ace908f9e3",
+    "name": "DynamoDB - SingleTable",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44589713"
+  },
+  "item": [
+    {
+      "name": "1-CREATE USER",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Mohan\",\r\n  \"email\": \"mohan@gmail.com\",\r\n  \"phone\": \"9876543210\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2-CREATE PROFILE",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"profileName\": \"RogueProfile1\",\r\n  \"isKidsProfile\": false,\r\n  \"isDefault\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/d59cdd85-dd51-4211-b696-ba409e7b6d08/profiles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "d59cdd85-dd51-4211-b696-ba409e7b6d08",
+            "profiles"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3-UPDATE USER",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Mohan V2\",\r\n  \"status\": \"ACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4-UPDATE PROFILE",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"profileName\": \"ProfileUpdated\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19/profiles/p1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+            "profiles",
+            "p1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5-DELETE PROFILE",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"profileName\": \"RogueProfile\",\r\n  \"isKidsProfile\": false,\r\n  \"isDefault\": false\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19/profiles/a390a68e-46fc-4756-9176-a4f36df54939",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+            "profiles",
+            "a390a68e-46fc-4756-9176-a4f36df54939"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6-DELETE USER",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/123c504b-cd3a-424c-b6c0-574df2c7abde",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "123c504b-cd3a-424c-b6c0-574df2c7abde"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7a-LOGIN (GSI) - email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/login?email=mohan@gmail.com",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "email",
+              "value": "mohan@gmail.com"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7b-LOGIN (GSI) - phone",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/login?phone=9876543210",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "phone",
+              "value": "9876543210"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "8-GET USER",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9-GET PROFILES (PAGINATED)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19/profiles?limit=3&cursor=eyJzayI6IlBST0ZJTEUjODU5MmMzNDQtZDRiNC00NDJkLTlhYmEtNzA0ZTEyNDczNTBmIiwicGsiOiJVU0VSIzBmNTQyYjAyLTc1MTYtNDI0ZC05YmU3LTVmY2IzZTJjOWUxOSJ9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+            "profiles"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "3"
+            },
+            {
+              "key": "cursor",
+              "value": "eyJzayI6IlBST0ZJTEUjODU5MmMzNDQtZDRiNC00NDJkLTlhYmEtNzA0ZTEyNDczNTBmIiwicGsiOiJVU0VSIzBmNTQyYjAyLTc1MTYtNDI0ZC05YmU3LTVmY2IzZTJjOWUxOSJ9"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10-GET ACTIVE PROFILES",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19/profiles/active",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+            "profiles",
+            "active"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "11-GET SELECTED PROFILE",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/0f542b02-7516-424d-9be7-5fcb3e2c9e19/profiles/selected",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "0f542b02-7516-424d-9be7-5fcb3e2c9e19",
+            "profiles",
+            "selected"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "12-SCAN (GET ALL USERS)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/admin/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "admin",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "13-GLOBAL PROFILE QUERY",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/profiles/global",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "profiles",
+            "global"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "userId",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
